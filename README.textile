@@ -1,0 +1,19 @@
+h1. Resque::Failure::CrashLog
+
+Use the @crashlog@ gem as you normally would - and just add the following failure backend to your Resque setup. Here's my current setup:
+
+<pre><code>require 'resque/failure/multiple'
+require 'resque-crashlog'
+
+Resque::Failure::Multiple.classes = [
+  Resque::Failure::Redis, Resque::Failure::CrashLog
+]
+Resque::Failure.backend = Resque::Failure::Multiple</code></pre>
+
+h2. Contributing
+
+There's really so little code involved here, so I've not bothered with tests. Don't tell anyone. If you want to add them - or contribute in other ways - please fork and offer patches in separate branches.
+
+h2. Licence
+
+Copyright (c) 2012, resque-crashlog is developed and maintained by Pat Allan, and is released under the open MIT Licence.
